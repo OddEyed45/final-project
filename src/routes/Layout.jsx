@@ -32,15 +32,15 @@ const LeftSide = () => {
     return (<>
         <div className="leftside">
             <h1>Louvre-stagram</h1>
-            <Link to="/" className="dashboard-button">
+            {(session) ? <Link to="/" className="dashboard-button">
                 🏠 Home Gallery
-            </Link>
-            <Link to="/create" className="dashboard-button">
+            </Link> : <div />}
+            {(session) ? <Link to="/create" className="dashboard-button">
                 🎨 Create Some Art
-            </Link>
-            <Link to="/" className="dashboard-button">
-                🏛️ View Museum Posts
-            </Link>
+            </Link> : <div />}
+            {(session) ? <Link to="/louvre" className="dashboard-button">
+                🏛️ View Museum
+            </Link> : <div />}
             {(session) ?
                 <button className="dashboard-button" onClick={handleLogout}>
                     Sign Out

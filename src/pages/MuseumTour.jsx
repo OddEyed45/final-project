@@ -1,0 +1,12 @@
+import "../index.css";
+
+const MuseumTour = () => {
+
+    return (
+        <div className="main-page">
+            <img src="./src/assets/floor1.png" className="image-container" />
+        </div>
+    )
+}
+
+export default MuseumTour

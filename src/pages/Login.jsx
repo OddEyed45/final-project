@@ -1,6 +1,7 @@
 import "../index.css";
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
+import App from "../App";
 
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY);
 
@@ -8,6 +9,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [session, setSession] = useState(null);
+    const [emailMessage, setEmailMessage] = useState("");
 
     // Check URL params on initial render
     const params = new URLSearchParams(window.location.search);
@@ -65,16 +67,11 @@ export default function Login() {
             }
         });
         if (error) {
-            alert(error.error_description || error.message);
+            setEmailMessage(error.error_description || error.message);
         } else {
-            alert("Check your email for the login link!");
+            setEmailMessage("Check your email for the login link!");
         }
         setLoading(false);
-    };
-
-    const handleLogout = async () => {
-        await supabase.auth.signOut();
-        setSession(null);
     };
 
     // Show verification state
@@ -122,11 +119,7 @@ export default function Login() {
     if (session) {
         return (
             <div>
-                <h1>Welcome!</h1>
-                <p>You are logged in as: {session.user.email}</p>
-                <button onClick={handleLogout}>
-                    Sign Out
-                </button>
+                <App />
             </div>
         );
     }
@@ -136,17 +129,20 @@ export default function Login() {
         <div className="login-page">
             <h1>Login with Email</h1>
             <p>Sign in via magic link with your email below</p>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className="login-form">
                 <input
                     type="email"
                     placeholder="Your email"
                     value={email}
                     required={true}
+                    className="email-input"
                     onChange={(e) => setEmail(e.target.value)}
                 />
+                <br />
                 <button disabled={loading}>
                     {loading ? <span>Loading</span> : <span>Send magic link</span>}
                 </button>
+                <p style={{ color: "#A80E00", fontWeight: "bold" }}>{emailMessage}</p>
             </form>
         </div>
     );
