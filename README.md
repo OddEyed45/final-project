@@ -16,19 +16,19 @@ The following **required** functionality is completed:
   - Forms should have the *option* for users to add: 
     - additional textual content
     - an image added as an external image URL
-- [ ] **Web app includes a home feed displaying previously created posts**
+- [X] **Web app includes a home feed displaying previously created posts**
   - Web app must include home feed displaying previously created posts
   - By default, each post on the posts feed should show only the post's:
     - creation time
     - title 
     - upvotes count
   - Clicking on a post should direct the user to a new page for the selected post
-- [ ] **Users can view posts in different ways**
+- [X] **Users can view posts in different ways**
   - Users can sort posts by either:
     -  creation time
     -  upvotes count
   - Users can search for posts by title
-- [ ] **Users can interact with each post in different ways**
+- [X] **Users can interact with each post in different ways**
   - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
     - content
     - image
@@ -69,7 +69,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![WEB102-A9](https://github.com/user-attachments/assets/1b9fd254-63ac-4edb-9e3d-f167d2152a2e)
+![WEB102-A9](https://github.com/user-attachments/assets/ca5a0030-ed74-4ad5-a1a4-5a25fb1551fb)
+
 
 
 <!-- Replace this with whatever GIF tool you used! -->
