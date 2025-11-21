@@ -4,7 +4,7 @@ Submitted by: Sreeja Amaresam
 
 This web app: It combines a virtual museum with a social media platform. It also gives people a space to share their own art!
 
-Time spent: 6 hours spent in total
+Time spent: 18 hours spent in total
 
 ## Required Features
 
