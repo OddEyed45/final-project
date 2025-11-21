@@ -33,10 +33,10 @@ const LeftSide = () => {
         <div className="leftside">
             <h1>Louvre-stagram</h1>
             {(session) ? <Link to="/" className="dashboard-button">
-                🏠 Home Gallery
+                🏠 People's Gallery
             </Link> : <div />}
             {(session) ? <Link to="/create" className="dashboard-button">
-                🎨 Create Some Art
+                🎨 Upload Some Art
             </Link> : <div />}
             {(session) ? <Link to="/louvre" className="dashboard-button">
                 🏛️ View Museum

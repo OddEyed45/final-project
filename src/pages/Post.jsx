@@ -3,6 +3,7 @@ import "../index.css";
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY);
+
 const fileUpload = async (file) => {
     const { data, error } = await supabase.storage
         .from('finalProject') // bucket name
@@ -77,9 +78,12 @@ const Post = () => {
             return;
         }
 
+        const { data: { session } } = await supabase.auth.getSession();
+        const userId = session?.user?.email;
+
         await supabase
             .from('posts')
-            .insert({ title: post.title, description: post.description, image: imageUrl })
+            .insert({ title: post.title, description: post.description, image: imageUrl, user: userId })
             .select()
         window.location = "/"
     }
@@ -109,7 +113,7 @@ const Post = () => {
                                 {uploading ? (
                                     <p>Uploading...</p>
                                 ) : file ? (
-                                    <p>✓ {file.name}</p>
+                                    <img src={imageUrl} style={{ maxWidth: '100%', maxHeight: '150px', objectFit: 'contain', borderRadius: '8px' }} />
                                 ) : (
                                     <>
                                         <span className="upload-icon">Upload Image</span>

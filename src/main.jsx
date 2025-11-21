@@ -7,6 +7,7 @@ import Layout from './routes/Layout.jsx'
 import Login from './pages/Login.jsx'
 import MuseumTour from './pages/MuseumTour.jsx'
 import Post from './pages/Post.jsx'
+import DetailedView from './pages/DetailedView.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Route index element={<Login />} />
         <Route path="/" element={<App />} />
         <Route path="/create" element={<Post />} />
+        <Route path="/view/:symbol" element={<DetailedView />} />
         <Route path="/louvre" element={<MuseumTour />} />
       </Route>
     </Routes>
